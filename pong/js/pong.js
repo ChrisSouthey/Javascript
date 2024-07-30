@@ -42,6 +42,14 @@ const player = [
 player[0] = new Box()
 player[1] = new Box()
 
+
+const pad = [
+    pad[0] = player[0].pad,
+    pad[1] = player[1].pad
+]
+
+
+
 function main()
 {
     //erases the canvas
