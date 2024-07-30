@@ -32,6 +32,16 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `Black`
 
+
+
+const player = [
+   player[0] = new Player(),
+   player[1] = new Player()
+]
+
+player[0] = new Box()
+player[1] = new Box()
+
 function main()
 {
     //erases the canvas
@@ -156,4 +166,7 @@ function main()
     ball.draw()
 
     
+
+
+
 }
