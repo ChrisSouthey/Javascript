@@ -109,7 +109,7 @@ function main()
             pad[1].y = c.height-pad[1].h/2
         }
 
-    //ball collision 
+    //ball collision with leftside
     if(ball.x < 0)
     {
         ball.x = c.width/2
@@ -129,7 +129,12 @@ function main()
     {
         ball.y = c.height
         ball.vy = -ball.vy
-       
+    }
+    if(ball.x < 0)
+    {
+        var p2Score = 0
+        p2Score += 1
+        console.log(`${p1Score} | ${p2Score}`)
     }
 
     //Ball colide with rightside
@@ -154,6 +159,12 @@ function main()
             ball.vy = -ball.vy
            
         }
+        if(ball.x < 799)
+    {
+        var p1Score = 0
+        p1Score += 1
+        console.log(`${p1Score} | ${p2Score}`)
+    }
 
     //pad[0] with ball collision
     if(ball.collide(pad[0]))
