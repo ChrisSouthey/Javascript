@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="range" min="0" max="255" value="0">
+        <input type="number" min="0" max="255" value="0">
+        <input type="range" min="0" max="255" value="0">
+        <input type="number" min="0" max="255" value="0">
+        <input type="range" min="0" max="255" value="0">
+        <input type="number" min="0" max="255" value="0">
+        <input type="color">
+        <input type="checkbox" name="check" value="255">
+        <input type="checkbox" name="check" value="255">
+        <input type="checkbox" name="check" value="255">
+    </form>
+
+    <script>
+        
+        let slider = Array.from(document.querySelectorAll(`input[type="range"]`))
+        let number = Array.from(document.querySelectorAll(`input[type="number"]`))
+        let color = document.querySelector(`input[type="color"`)
+        let check = Array.from(document.querySelectorAll(`input[type="check"]`))
+
+        update()
+
+
+        check.forEach((i, index)=>{
+            i.addEventListener(e=>{
+                document.querySelector(`body`).style.backgroundColor =(`rgb${check[0]},${check[1]},${check[2]}`)
+            })
+        })
+
+
+        color.addEventListener(`input`, e=>document.querySelector(`body`).style.backgroundColor =e.target.value)
+        
+
+        slider.forEach((i, index)=>{
+            i.addEventListener(`input`, e=>{
+                number[index].value = i.value
+                update()
+            })
+        })
+
+        number.forEach((i, index)=>{
+            i.addEventListener(`input`, e=>{
+                slider[index].value = i.value
+                update()
+            })
+        })
+        
+
+        function update()
+        {
+            document.querySelector(`body`).style.backgroundColor =(`rgb${slider[0]},${slider[1]},${slider[2]}`)
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
