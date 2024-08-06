@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage example</title>
+</head>
+<body>
+
+    <h1>Local Storage Example</h1>
+    <select>
+        <option default>black</option>
+        <option>white</option>
+    </select>
+
+    <input type="color">
+    <button>Save</button>
+    <button>Clear</button>
+
+
+    <script>
+
+        var select = q(`select`)
+        var body = q(`body`)
+        var h1 = q(`h1`)
+        var input = q(`input[type="color"]`)
+        var buttons = document.querySelectorAll(`button`)
+
+        var settings = {
+            bg:select.value,
+            text:input.value
+        }
+
+
+        if(typeof(Storage)!== undefined)
+        {
+            settings = JSON.parse(localStorage.getItem(`settings`))
+            body.style.backgroundColor = settings.bg
+            select.value = settings.bg
+            h1.style.color = settings.text
+            input.value = settings.text
+        }
+
+        //body.style.backgroundColor = select.value
+
+        select.addEventListener(`input`, e=>{
+            settings.bg = select.value
+        })
+
+
+        input.addEventListener(`input`, e=>{
+           settings.text = input.value
+        })
+
+        buttons[0].addEventListener(`click`, e=>{
+            localStorage.setItem(`settings`, JSON.stringify(settings))
+            body.style.backgroundColor = settings.bg
+            select.value = settings.bg
+
+            h1.style.color = settings.text
+            input.value = settings.text
+        })
+
+        buttons[1].addEventListener(`click`, e=>{
+            localStorage.clear()
+            
+        })
+
+
+        function q(element)
+                {
+                    return document.querySelector(element)
+                }
+
+                
+    </script>
+    
+</body>
+</html>
