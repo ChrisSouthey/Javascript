@@ -46,7 +46,8 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `Black`
 
-
+var p2Score = 0
+var p1Score = 0
 
 
 
@@ -110,12 +111,12 @@ function main()
         }
 
 
-    var p2Score = 0
-    var p1Score = 0
+    
     //ball collision with leftside
     if(ball.x < 0)
     {
         p2Score += 1
+        console.log(`${p1Score} | ${p2Score}`)
         ball.x = c.width/2
         ball.y  =c.height/2
     }
@@ -144,6 +145,7 @@ function main()
     if(ball.x > 799)
     {
         p1Score += 1
+        console.log(`${p1Score} | ${p2Score}`)
         ball.x = c.width/2
         ball.y  =c.height/2
     }
@@ -191,8 +193,8 @@ function main()
 
     
     
-    console.log(`${p1Score} | ${p2Score}`)
+    
 
 }
 
-console.log(pad)
+
