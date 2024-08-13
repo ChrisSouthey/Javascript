@@ -49,6 +49,8 @@ ball.color = `Black`
 var p2Score = 0
 var p1Score = 0
 
+var div = Array.from(document.querySelectorAll(`section div`))
+console.log(div)
 
 
 
@@ -135,11 +137,7 @@ function main()
         ball.y = c.height
         ball.vy = -ball.vy
     }
-    
-    
-    
-        
-    
+
 
     //Ball colide with rightside
     if(ball.x > 799)
@@ -165,12 +163,6 @@ function main()
         ball.vy = -ball.vy
     }
         
-        
-        
-        
-           
-        
-        
 
     //pad[0] with ball collision
     if(ball.collide(pad[0]))
@@ -192,7 +184,11 @@ function main()
     ball.draw()
 
     
-    
+    for(let i = 0; i < div.length; i++)
+    {
+        div[0].innerHTML = `Player 1 Score: ` + p1Score
+        div[1].innerHTML = `Player 2 Score: ` + p2Score
+    }
     
 
 }
