@@ -50,7 +50,7 @@ var p2Score = 0
 var p1Score = 0
 
 var div = Array.from(document.querySelectorAll(`section div`))
-console.log(div)
+//console.log(div)
 
 
 
@@ -59,7 +59,7 @@ function main()
     //erases the canvas
     ctx.clearRect(0,0,c.width,c.height)
     
-    //pad[0] accelerates when key is pressed 
+    //pad[0] movement 
     if(keys[`w`])
     {
        pad[0].vy += -pad[0].force
@@ -69,11 +69,7 @@ function main()
     {
         pad[0].vy += pad[0].force
     }
-    //applies friction
-    pad[0].vy *= fy
-    //player movement
-    pad[0].move();
-
+  
     //pad[1] movement
     if(keys[`ArrowUp`])
     {
@@ -85,34 +81,27 @@ function main()
             pad[1].vy += pad[1].force
         }
 
-    pad[1].vy *= fy
-    pad[1].move();
-
+    for(i=0;i<pad.length;i++)
+    {
+        pad[i].vy *= fy
+        pad[i].move()
+    }
     //ball movement
     ball.move()
 
-    //pad[0] collision
-    if(pad[0].y < 0+pad[0].h/2)
-    {
-        pad[0].y = 0+pad[0].h/2
-    }
-    if(pad[0].y > c.height-pad[0].h/2)
-    {
-        pad[0].y = c.height-pad[0].h/2
-    }
 
-    //pad[1] collisions
-    if(pad[1].y < 0+pad[1].h/2)
+    //Pad collisions
+    for(i=0;i<pad.length;i++)
     {
-        pad[1].y = 0+pad[1].h/2
-    }
-
-    if(pad[1].y > c.height-pad[1].h/2)
+        if(pad[i].y < 0+pad[i].h/2)
         {
-            pad[1].y = c.height-pad[1].h/2
+            pad[i].y = 0+pad[i].h/2
         }
-
-
+        if(pad[i].y > c.height-pad[i].h/2)
+        {
+            pad[i].y = c.height-pad[i].h/2
+        } 
+    }
     
     //ball collision with leftside
     if(ball.x < 0)
@@ -179,8 +168,10 @@ function main()
     }
 
     //draw the objects
-    pad[0].draw()
-    pad[1].draw()
+    for(i=0;i<pad.length;i++)
+    {
+        pad[i].draw()
+    }
     ball.draw()
 
     
