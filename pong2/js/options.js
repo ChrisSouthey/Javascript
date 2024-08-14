@@ -18,6 +18,17 @@ h2.addEventListener(`click`, e=>{
         . Show the fill's hex code in the output div 
 
 -----------*/
+var input = Array.from(document.querySelectorAll(`input[class="fill"]`))
+
+input.forEach((i, index)=>{
+    i.addEventListener(`input`, e=>{
+        o[index].fill = input[index].value
+        }) 
+})
+
+
+
+
 
 /*---------
     Program the six key inputs to do the following:
