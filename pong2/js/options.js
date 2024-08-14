@@ -27,9 +27,6 @@ input.forEach((i, index)=>{
 })
 
 
-
-
-
 /*---------
     Program the six key inputs to do the following:
     . Display the correct key names for each player   
@@ -38,3 +35,18 @@ input.forEach((i, index)=>{
         .Change the player's key to the value of the input
         .Show the player's key in the output div 
 -----------*/
+var up = Array.from(document.querySelectorAll(`input[class="u"]`))
+
+console.log(up.value)
+
+up.forEach((i, index)=>{
+    i.addEventListener(`keydown`, e=>{
+        player[index].keys.u = up[index].value
+    })
+    i.addEventListener(`click`, e=>{
+        currentState = `pause`
+    })
+})
+
+
+
