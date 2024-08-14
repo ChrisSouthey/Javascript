@@ -36,12 +36,30 @@ input.forEach((i, index)=>{
         .Show the player's key in the output div 
 -----------*/
 var up = Array.from(document.querySelectorAll(`input[class="u"]`))
-
-console.log(up.value)
-
+var down = Array.from(document.querySelectorAll(`input[class="d"]`))
+var side = Array.from(document.querySelectorAll(`input[class="s"]`))
+//Up input
 up.forEach((i, index)=>{
     i.addEventListener(`keydown`, e=>{
         player[index].keys.u = up[index].value
+    })
+    i.addEventListener(`click`, e=>{
+        currentState = `pause`
+    })
+})
+//Down input
+down.forEach((i, index)=>{
+    i.addEventListener(`keydown`, e=>{
+        player[index].keys.d = down[index].value
+    })
+    i.addEventListener(`click`, e=>{
+        currentState = `pause`
+    })
+})
+//Side input
+side.forEach((i, index)=>{
+    i.addEventListener(`keydown`, e=>{
+        player[index].keys.s = side[index].value
     })
     i.addEventListener(`click`, e=>{
         currentState = `pause`
