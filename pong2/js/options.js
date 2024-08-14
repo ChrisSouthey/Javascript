@@ -19,13 +19,19 @@ h2.addEventListener(`click`, e=>{
 
 -----------*/
 var input = Array.from(document.querySelectorAll(`input[class="fill"]`))
-
+//Pad fill
 input.forEach((i, index)=>{
     i.addEventListener(`input`, e=>{
         o[index].fill = input[index].value
         }) 
 })
 
+//Ball fill
+var fill = document.querySelector(`input[class="ball"]`)
+
+fill.addEventListener(`input`, e=>{
+    o[2].fill = fill.value
+})
 
 /*---------
     Program the six key inputs to do the following:
