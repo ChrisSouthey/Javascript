@@ -49,13 +49,15 @@
 
         //NEW GAME
         const newGame = document.createElement(`button`)
-        newGame.setAttribute(`id`, `newgame`, `data-load`, `false`)
+        newGame.setAttribute(`id`, `newgame`)
+        newGame.setAttribute(`data-load`, `false`)
         newGame.appendChild(document.createTextNode(`New Game`))
         gameMenu.appendChild(newGame)
 
         //CONTINUE
         const contGame = document.createElement(`button`)
-        contGame.setAttribute(`id`, `cont`, `data-load`, `true`)
+        contGame.setAttribute(`id`, `cont`,)
+        contGame.setAttribute(`data-load`, `true`)
         contGame.appendChild(document.createTextNode(`Continue`))
         gameMenu.appendChild(contGame)
 
@@ -88,23 +90,30 @@
         newGame.addEventListener(`click`, (e)=>{
             console.log(`NEW`)
             menus.removeChild(gameMenu)
-            window.location = `lobby.html?load=${e.target.dataset.load}`   
+            window.location =  `lobby.html?load=${e.target.dataset.load}`
+
+            let params = (new URL(document.location)).searchParams;
+            let name = params.get("load");
+            alert(name);
         })
 
         contGame.addEventListener(`click`, (e)=>{
             console.log(`CONT`)
             menus.removeChild(gameMenu)
-            window.location = `lobby.html?load=${e.target.dataset.load}`   
+            window.location = `lobby.html?load=${e.target.dataset.load}` 
+
+            let params = (new URL(document.location)).searchParams;
+            let name = params.get("load");
+            alert(name);  
         })
 
         scoreButton.addEventListener(`click`, (e)=>{
-            console.log(`CONT`)
+            console.log(`HS`)
             menus.removeChild(gameMenu)
             window.location = `hs.html`   
         })
 
-
-
+        
 
     </script>
 </body>
