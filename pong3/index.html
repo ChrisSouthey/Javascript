@@ -92,9 +92,7 @@
             menus.removeChild(gameMenu)
             window.location =  `lobby.html?load=${e.target.dataset.load}`
 
-            let params = (new URL(document.location)).searchParams;
-            let name = params.get("load");
-            alert(name);
+            
         })
 
         contGame.addEventListener(`click`, (e)=>{
@@ -102,9 +100,7 @@
             menus.removeChild(gameMenu)
             window.location = `lobby.html?load=${e.target.dataset.load}` 
 
-            let params = (new URL(document.location)).searchParams;
-            let name = params.get("load");
-            alert(name);  
+             
         })
 
         scoreButton.addEventListener(`click`, (e)=>{
