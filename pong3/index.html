@@ -86,10 +86,25 @@
         })
 
         newGame.addEventListener(`click`, (e)=>{
-            console.log(`hi`)
+            console.log(`NEW`)
             menus.removeChild(gameMenu)
-            window.location = `lobby.html`   
+            window.location = `lobby.html?load=${e.target.dataset.load}`   
         })
+
+        contGame.addEventListener(`click`, (e)=>{
+            console.log(`CONT`)
+            menus.removeChild(gameMenu)
+            window.location = `lobby.html?load=${e.target.dataset.load}`   
+        })
+
+        scoreButton.addEventListener(`click`, (e)=>{
+            console.log(`CONT`)
+            menus.removeChild(gameMenu)
+            window.location = `hs.html`   
+        })
+
+
+
 
     </script>
 </body>
