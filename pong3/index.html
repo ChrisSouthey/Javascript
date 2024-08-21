@@ -40,8 +40,8 @@
         startMenu.style.opacity =`0`;
 
         const gameMenu = document.createElement(`div`);
-        startMenu.setAttribute(`id`, `start`);
-        startMenu.style.opacity =`0`;
+        gameMenu.setAttribute(`id`, `gamemenu`);
+        gameMenu.style.opacity =`0`;
         
         const startButton = document.createElement(`button`);
         startButton.appendChild(document.createTextNode(`start`));
@@ -79,16 +79,16 @@
             console.log(`hi`)
             $(`#start`).animate({opacity: 0}, 1000, function(){
                 menus.removeChild(startMenu)
+                console.log(`HELLO`)
                 menus.appendChild(gameMenu)
+                $(`#gamemenu`).animate({opacity: 1}, 1000);
             });
         })
 
         newGame.addEventListener(`click`, (e)=>{
             console.log(`hi`)
-            $(`#newgame`).animate({opacity: 0}, 1000, function(){
-                menus.removeChild(gameMenu)
-                window.location = `lobby.html`
-            });
+            menus.removeChild(gameMenu)
+            window.location = `lobby.html`   
         })
 
     </script>
