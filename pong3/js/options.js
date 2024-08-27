@@ -20,7 +20,7 @@ h2.addEventListener(`click`, e=>{
 -----------*/
 var input = Array.from(document.querySelectorAll(`input[class="fill"]`))
 var text = Array.from(document.querySelectorAll(`.op #color`))
-
+console.log(input)
 //Pad fill
 input.forEach((i, index)=>{
     text[index].innerText = '#000000'
