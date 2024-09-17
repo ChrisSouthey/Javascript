@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1</title>
+    <style>
+        .output{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:64px;
+            font-weight:bold;
+            
+        }
+        form{
+            display:grid;
+            grid-template-columns: minmax(100px, max-content) auto;
+            grid-template-rows: min-content;
+        }
+        button{
+            margin-top:30px;
+        }
+        label{
+            margin-right:20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <select>
+            <option>planets</option>
+            <option>spaceships</option>
+            <option>vehicles</option>
+            <option>people</option>
+            <option>films</option>
+            <option>species</option>
+        </select>
+        <input type="number" placeholder="1" maxlength="1">
+        <input type="button" value="submit">
+    </form>
+    <div class="output">
+       
+    </div>
+    <script>
+
+        let options = [
+        `planets`, `spaceships`, `vehicles`, `people`, `films`, `species`
+        ] 
+       
+           // using javascript add the values of the options array to the select box
+           // Example format: <option>planets</option>
+
+            //Make sure your cors extension is on.
+            //query select all the inputs
+            var select = document.querySelector(`select`)
+            var num = document.querySelector(`input[type="number"]`)
+            var btn = document.querySelector(`input[type="button"]`)
+            var output = document.querySelector(`.output`)
+            
+            async function load(e){
+                url = `https://swapi.dev/api`
+                url += `/${select.value}`
+                url += `/${num.value}`
+                console.log(url)
+                var promise = await fetch(url)
+                var data = await promise.json(data)
+              
+                console.log(data)
+                for(let[key,value] of Object.entries(data)){
+                output.innerHTML += (`<br>${key}: ${value}`);
+        }
+            }
+            
+            
+            //add an event listener to the button
+            btn.addEventListener(`click`, e=>{
+                
+                load()
+            })
+            //When the button is clicked
+            //call an async function
+            //the async function will do the following:
+                //fetch a location from `https://swapi.dev/api/[the value of the select box goes here]/[the number from the input goes here]`
+                //console.log the returned data
+
+                //Display the first 3 property names and values of the returned object in the output div
+                
+
+                
+        
+      
+       
+    </script>
+</body>
+</html>
